@@ -14,7 +14,7 @@ def index():
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=generate_prompt(animal),
-            temperature=0,
+            temperature=0.3,
             max_tokens=150,
         )
         return redirect(url_for("index", result=response.choices[0].text))
@@ -24,7 +24,7 @@ def index():
 
 
 def generate_prompt(animal):
-    return """Pretend to be Kanye West, respond as him
+    return """Pretend to be Kanye West, respond as him in offensive manner
 Animal: {}
 Names:""".format(
         animal.capitalize()
