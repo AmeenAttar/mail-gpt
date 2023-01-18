@@ -14,7 +14,7 @@ def index():
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=generate_prompt(animal),
-            temperature=0.6,
+            temperature=0,
             max_tokens=150,
         )
         return redirect(url_for("index", result=response.choices[0].text))
