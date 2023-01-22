@@ -4,18 +4,18 @@ import openai
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-openai.api_key = os.getenv("MY_KEY")
+openai.api_key = "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"
 
 
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        animal = request.form["animal"]
+        user = request.form["user"]
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt(animal),
-            temperature=0.3,
-            max_tokens=150,
+            prompt=generate_prompt(user),
+            temperature=0,
+            max_tokens=3000,
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
@@ -23,9 +23,9 @@ def index():
     return render_template("index.html", result=result)
 
 
-def generate_prompt(animal):
-    return """Pretend to be Kanye West, respond as him in offensive manner
-Animal: {}
-Names:""".format(
-        animal.capitalize()
+def generate_prompt(user):
+    return """ Respond back with the verses from the holy Quran with brief explaination, relavant to the prompt. Be compassionate.
+User: {}
+Quran:""".format(
+        user.capitalize()
     )
