@@ -4,7 +4,7 @@ import openai
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-openai.api_key = "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"
+openai.api_key = os.getenv("MY_KEY")
 
 
 @app.route("/", methods=("GET", "POST"))
@@ -14,7 +14,7 @@ def index():
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=generate_prompt(user),
-            temperature=0,
+            temperature=0.3,
             max_tokens=3000,
         )
         return redirect(url_for("index", result=response.choices[0].text))
@@ -24,8 +24,8 @@ def index():
 
 
 def generate_prompt(user):
-    return """ Respond back with the verses from the holy Quran with brief explaination, relavant to the prompt. Be compassionate.
+    return """Pretend to be Taylor Swift, respond in her style.
 User: {}
-Quran:""".format(
+Taylor:""".format(
         user.capitalize()
     )
