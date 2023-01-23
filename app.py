@@ -10,7 +10,7 @@ openai.api_key = os.getenv("MY_KEY")
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-         recipient= request.form["recipient"]
+        recipient= request.form["recipient"]
         recipientPosition= request.form["recipientPosition"]
         sender= request.form["sender"]
         ##senderPosition= request.form["senderPosition"]
