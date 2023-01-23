@@ -10,16 +10,16 @@
 <body>
   <img src="{{ url_for('static', filename='email-server-icon-png-7238.png') }}" class="icon" />
 <h3>MailGPT</h3>
-  <h4 style="font-size: 26px">Generate a well-structured mail for any scenario</h4>
+  <h4 style="font-size: 13px">Generate a organized mail for any scenario</h4>
   <form action="/" method="post">
   <label for="recipient">Enter recipient's name:</label>
-    <input type="text" name="recipient" placeholder=" Rahul Sharma" required />
+    <input type="text" name="recipient" placeholder="eg: Rahul Sharma" required />
     <label for="recipientPosition">Enter recipient's position:</label>
-    <input type="text" name="recipientPosition" placeholder=" General Manager" required />
+    <input type="text" name="recipientPosition" placeholder="eg: General Manager" required />
     <label for="sender">Enter your name:</label>
-    <input type="text" name="sender" placeholder=" Kumar Varun" required />
-    <label for="senderPosition">Enter your position:</label>
-    <input type="text" name="senderPosition" placeholder=" Associate" />
+    <input type="text" name="sender" placeholder="eg: Kumar Varun" required />
+    <label for="senderPosition">Enter your position: [Optional]</label>
+    <input type="text" name="senderPosition" placeholder="eg: Associate" />
     <label for="reason">Enter the reason for your mail:</label>
     <input type="text" name="reason" placeholder=" need 4 days leave to visit Delhi" required />
     <input type="submit" value="Generate Mail"/>
