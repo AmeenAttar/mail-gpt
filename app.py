@@ -13,9 +13,9 @@ def index():
         recipient= request.form["recipient"]
         recipientPosition= request.form["recipientPosition"]
         sender= request.form["sender"]
-        ##senderPosition= request.form["senderPosition"]
+        senderPosition= request.form["senderPosition"]
         reason = request.form["reason"]
-        prompts = "Write a structured corporate email from "+ sender+ ", to " + recipient + ", who is a " + recipientPosition+ " stating " + reason 
+        prompts = "Write a structured corporate email from "+ sender+ " as " + senderPosition+ ", to " + recipient + ", who is a " + recipientPosition+ ", stating " + reason 
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=generate_prompt(prompts),
