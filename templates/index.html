@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <head>
-  <title>EZXplain-GPT</title> <link
+   <title>Mail-GPT</title> <link
     rel="shortcut icon"
     href="{{ url_for('static', filename='dumb.jpeg') }}"
   />
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='mail.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dumb.jpeg') }}" class="icon" />
-  <h3>EZXplain</h3>
-  <h2>Explain anything to anyone of any age!</h2>
+  <img src="{{ url_for('static', filename='mail.jpeg') }}" class="icon" />
+<h3>MailGPT</h3>
+  <h2>Generate a well-structured mail for any scenario</h2>
   <form action="/" method="post">
-    <label for="age">Enter your kid's age:</label>
-    <input type="text" name="age" placeholder=" example: 8" required />
-    <label for="age">Enter the topic you would like to explain:</label>
-    <input type="text" name="user" placeholder=" example: Big Bang" required />
-    <input type="submit" value="Submit" />
+  <label for="recipient">Enter recipient's name:</label>
+    <input type="text" name="recipient" placeholder=" Rahul Sharma" required />
+    <label for="recipientPosition">Enter recipient's position:</label>
+    <input type="text" name="recipientPosition" placeholder=" General Manager" required />
+    <label for="sender">Enter your name:</label>
+    <input type="text" name="sender" placeholder=" Kumar Varun" required />
+    <!-- <label for="senderPosition">Enter sender's position:</label>
+    <input type="text" name="senderPosition" placeholder=" Associate" /> -->
+    <label for="reason">Enter the reason for your mail:</label>
+    <input type="text" name="reason" placeholder=" need 4 days leave to explore Goa" required />
+    <input type="submit" value="Generate Mail"/>
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
@@ -25,7 +31,7 @@
   <style>
     #footer {
         position: fixed;
-        padding: 10px 10px 0px 10px;
+        padding: 10px 10px 10px 10px;
         bottom: 0;
         width: 100%;
         /* Height of the footer*/
